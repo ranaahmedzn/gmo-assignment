@@ -31,7 +31,7 @@ const FirstPage = () => {
     return (
         <div className='main-div'>
             <div className='middle-div'>
-                <h3 className='title'>Please Provide you Information</h3>
+                <h3 className='title'>Please Provide your Information</h3>
                 <Box
                     component="form"
                     sx={{ '& .MuiTextField-root': { width: 'full', mb: '20px' } }}

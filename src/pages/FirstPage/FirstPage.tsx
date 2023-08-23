@@ -15,6 +15,10 @@ const FirstPage = () => {
     const navigate = useNavigate();
 
     const handleSubmit = () => {
+        setNameError(false)
+        setEmailError(false)
+        setNumberError(false)
+
         if (!name && !email && !number) {
             return Swal.fire({
                 icon: 'error',
@@ -53,13 +57,13 @@ const FirstPage = () => {
                         <TextField error={nameError} value={name} onChange={(newValue) => setName(newValue.target.value)} id="outlined-basic" fullWidth label="Name" variant="outlined" helperText={`${nameError ? 'Please enter your name!' : ''}`} />
                     </div>
                     <div>
-                        <TextField error={emailError} value={email} onChange={(newValue) => setEmail(newValue.target.value)} id="outlined-basic" fullWidth label="Email" variant="outlined" helperText={`${emailError ? 'Enter your email!' : ''}`} />
+                        <TextField error={emailError} value={email} onChange={(newValue) => setEmail(newValue.target.value)} id="outlined-basic" fullWidth label="Email" variant="outlined" helperText={`${emailError ? 'Please enter your email!' : ''}`} />
                     </div>
                     <div>
-                        <TextField error={numberError} value={number} onChange={(newValue) => setNumber(newValue.target.value)} id="outlined-basic" fullWidth label="Phone" variant="outlined" helperText={`${numberError ? 'Enter your number!' : ''}`} />
+                        <TextField error={numberError} value={number} onChange={(newValue) => setNumber(newValue.target.value)} id="outlined-basic" fullWidth label="Phone" variant="outlined" helperText={`${numberError ? 'Please enter your number!' : ''}`} />
                     </div>
                     <Button onClick={handleSubmit} variant="contained" endIcon={<SendIcon />}>
-                        Send
+                        Submit
                     </Button>
                 </Box>
             </div>

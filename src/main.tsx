@@ -9,6 +9,7 @@ import "./index.css";
 import FirstPage from './pages/FirstPage/FirstPage.tsx';
 import PrivateRoute from './routes/PrivateRoute.tsx';
 import SecondPage from './pages/SecondPage/SecondPage.tsx';
+import ErrorPage from './pages/ErrorPage/ErrorPage.tsx';
 
 const router = createBrowserRouter([
   {
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
     path: "/second-page",
     element: <PrivateRoute><SecondPage /></PrivateRoute>,
   },
+  {
+    path: "*",
+    element: <ErrorPage />
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')!).render(

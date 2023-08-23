@@ -1,20 +1,38 @@
-.main-div{
-    width: 100vw;
+.main-div {
+    width: 100%;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgb(79, 79, 255);
+    background-image: linear-gradient(to right, #2A5470, #4C4177);
     overflow-x: hidden;
 }
-.middle-div{
-    width: 40%;
-    padding: 40px;
+
+.middle-div {
     border-radius: 10px;
-    background-color: white;
-    box-shadow: 0 5px 40px rgba(0,0,0,0.10), 0 5px 40px rgba(0,0,0,0.10);
+    background-color: rgba(255, 255, 255, 0.85);
+    box-shadow: 0 5px 40px rgba(0, 0, 0, 0.20), 0 5px 40px rgba(0, 0, 0, 0.20);
 }
-.middle-div .title{
+
+.middle-div .title {
     margin-bottom: 30px;
     font-size: 34px;
+}
+
+/* smaller device style */
+@media only screen and (max-width: 767px) {
+
+    .middle-div {
+        width: 80%;
+        padding: 20px;
+    }
+}
+
+/* large device style */
+@media only screen and (min-width: 768px) {
+
+    .middle-div {
+        width: 40%;
+        padding: 40px;
+    }
 }

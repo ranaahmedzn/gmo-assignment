@@ -20,7 +20,7 @@ const DepartmentsDropdown = () => {
                             <KeyboardArrowRightIcon sx={{ cursor: 'pointer' }} onClick={() => setExpanded([!expanded[0], expanded[1]])} />
                     }
                     <FormControlLabel
-                        label="Customer_Service"
+                        label="Customer Services"
                         control={
                             <Checkbox
                                 checked={checked[0] && checked[1]}
@@ -35,7 +35,7 @@ const DepartmentsDropdown = () => {
                         control={<Checkbox checked={checked[0]} onChange={(e) => setChecked([e.target.checked, checked[1]])} />}
                     />
                     <FormControlLabel
-                        label="Customer_Success"
+                        label="Customer Success"
                         control={<Checkbox checked={checked[1]} onChange={(e) => setChecked([checked[0], e.target.checked])} />}
                     />
                 </Box>
@@ -59,15 +59,15 @@ const DepartmentsDropdown = () => {
                 </Box>
                 <Box sx={{ display: `${expanded[1] ? 'flex' : 'none'}`, flexDirection: 'column', ml: 8 }}>
                     <FormControlLabel
-                        label="Graphic-Design"
+                        label="Graphic Design"
                         control={<Checkbox checked={checked2[0]} onChange={(e) => setChecked2([e.target.checked, checked2[1], checked2[2]])} />}
                     />
                     <FormControlLabel
-                        label="Product-Design"
+                        label="Product Design"
                         control={<Checkbox checked={checked2[1]} onChange={(e) => setChecked2([ checked2[0], e.target.checked, checked2[2]])} />}
                     />
                     <FormControlLabel
-                        label="Web-Design"
+                        label="Web Design"
                         control={<Checkbox checked={checked2[2]} onChange={(e) => setChecked2([ checked2[0], checked2[1], e.target.checked])}/>}
                     />
                 </Box>

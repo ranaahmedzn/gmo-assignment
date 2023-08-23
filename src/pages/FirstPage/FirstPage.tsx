@@ -9,22 +9,33 @@ const FirstPage = () => {
     const [name, setName] = useState<string>('');
     const [email, setEmail] = useState<string>('');
     const [number, setNumber] = useState<string>('');
+    const [nameError, setNameError] = useState<boolean>(false)
+    const [emailError, setEmailError] = useState<boolean>(false)
+    const [numberError, setNumberError] = useState<boolean>(false)
     const navigate = useNavigate();
 
     const handleSubmit = () => {
-        
-        if (name && email && number) {
-            const user = { name: name, email: email, number: number }
-
-            localStorage.setItem('user', JSON.stringify(user))
-            navigate('/second-page', { replace: true })
-        }
-        else {
-            Swal.fire({
+        if (!name && !email && !number) {
+            return Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
                 text: 'You must enter your details before proceed to the Next page!',
             })
+        }
+        if (!name) {
+            return setNameError(true)
+        }
+        else if (!email) {
+            return setEmailError(true)
+        }
+        else if (!number) {
+            return setNumberError(true)
+        }
+        else {
+            const user = { name: name, email: email, number: number }
+
+            localStorage.setItem('user', JSON.stringify(user))
+            navigate('/second-page', { replace: true })
         }
     }
 
@@ -39,13 +50,13 @@ const FirstPage = () => {
                     autoComplete="off"
                 >
                     <div>
-                        <TextField value={name} onChange={(newValue) => setName(newValue.target.value)} id="outlined-basic" fullWidth label="Name" variant="outlined" />
+                        <TextField error={nameError} value={name} onChange={(newValue) => setName(newValue.target.value)} id="outlined-basic" fullWidth label="Name" variant="outlined" helperText={`${nameError ? 'Please enter your name!' : ''}`} />
                     </div>
                     <div>
-                        <TextField value={email} onChange={(newValue) => setEmail(newValue.target.value)} id="outlined-basic" fullWidth label="Email" variant="outlined" />
+                        <TextField error={emailError} value={email} onChange={(newValue) => setEmail(newValue.target.value)} id="outlined-basic" fullWidth label="Email" variant="outlined" helperText={`${emailError ? 'Enter your email!' : ''}`} />
                     </div>
                     <div>
-                        <TextField value={number} onChange={(newValue) => setNumber(newValue.target.value)} id="outlined-basic" fullWidth label="Phone" variant="outlined" />
+                        <TextField error={numberError} value={number} onChange={(newValue) => setNumber(newValue.target.value)} id="outlined-basic" fullWidth label="Phone" variant="outlined" helperText={`${numberError ? 'Enter your number!' : ''}`} />
                     </div>
                     <Button onClick={handleSubmit} variant="contained" endIcon={<SendIcon />}>
                         Send
